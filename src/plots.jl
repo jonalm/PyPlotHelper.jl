@@ -126,3 +126,10 @@ function zz_scratterplot(zscores1::Vector{Float64}, zscores2::Vector{Float64};
         ax[:plot](r*sin(theta), r*cos(theta),"--k",lw=2)
     end
 end
+
+function add_95CI_2ax!(ax::PyCall.PyObject, x::AbstractVector, mean::AbstractVector, std::AbstractVector; color="k", alpha=1.0)
+    ax[:plot](x, mean,"-", color=color, alpha=alpha)
+    ax[:plot](x, mean+2*std,"--", color=color, alpha=alpha)
+    ax[:plot](x, mean-2*std,"--", color=color, alpha=alpha)
+end
+

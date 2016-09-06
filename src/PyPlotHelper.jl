@@ -1,8 +1,5 @@
 module PyPlotHelper
 
-using PyPlot
-using Distributions
-
 export
 showmatrix,
 manhattanplot,
@@ -11,5 +8,10 @@ probhist,
 uniform_quantile,
 zz_scratterplot
 
-import("plot.jl")
+using PyCall
+using PyPlot
+using Distributions
+
+include("plots.jl")
+
 end
